@@ -141,7 +141,7 @@ func (p *Password) VisualizePasswordStrength() string {
     visualization.WriteString("] ")
 
     if entropy >= 80 {
-        visualization.WriteString("Very Strong")
+        visualization.WriteString("Ironclad")
     } else if entropy >= 60 {
         visualization.WriteString("Strong")
     } else if entropy >= 40 {

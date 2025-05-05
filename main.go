@@ -241,7 +241,7 @@ func (m model) View() string {
 	var s strings.Builder
 
 	// Display banner
-	s.WriteString(titleStyle.Render("\n  The Password Thunderdome v3.0.0  \n"))
+	s.WriteString(titleStyle.Render("\n  The Password Thunderdome v4  \n"))
 	s.WriteString("\n")
 
 	switch m.state {
