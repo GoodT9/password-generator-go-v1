@@ -1,13 +1,12 @@
 package generator
 
 import (
-	"fmt"
 	"math/rand"
 	"strings"
 	"time"
 
-	"github.com/yourusername/password-generator-go/alphabet"
-	"github.com/yourusername/password-generator-go/password"
+	"github.com/GoodT9/password-generator-go-v1/alphabet"
+	"github.com/GoodT9/password-generator-go-v1/password"
 )
 
 // Generator handles password generation and related operations

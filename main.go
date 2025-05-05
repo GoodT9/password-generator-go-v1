@@ -6,11 +6,11 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/GoodT9/password-generator-go-v1/generator"
+	"github.com/GoodT9/password-generator-go-v1/password"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/GoodT9/password-generator-go/generator"
-	"github.com/GoodT9/password-generator-go/password"
 )
 
 var (
@@ -40,9 +40,9 @@ var (
 			PaddingLeft(4)
 
 	selectedItemStyle = lipgloss.NewStyle().
-			Foreground(lipgloss.Color("#7D56F4")).
-			PaddingLeft(2).
-			SetString("> ")
+				Foreground(lipgloss.Color("#7D56F4")).
+				PaddingLeft(2).
+				SetString("> ")
 )
 
 type state int
@@ -173,7 +173,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.error = "Please enter 'yes' or 'no'"
 					return m, nil
 				}
-				
+
 				// Check if at least one character type is selected
 				if !m.includeUpper && !m.includeLower && !m.includeNum && !m.includeSym {
 					m.error = "You must include at least one character type"
@@ -181,7 +181,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.textInput.SetValue("")
 					return m, nil
 				}
-				
+
 				m.error = ""
 				m.state = stateAskLength
 				m.textInput.SetValue("")
@@ -194,7 +194,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				}
 				m.error = ""
 				m.passwordLength = length
-				
+
 				// Generate the password
 				gen := generator.New(m.includeUpper, m.includeLower, m.includeNum, m.includeSym)
 				m.generatedPwd = gen.GeneratePassword(m.passwordLength)
